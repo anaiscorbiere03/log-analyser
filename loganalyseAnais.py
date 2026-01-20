@@ -3,6 +3,7 @@ import abc
 import re
 import time
 from datetime import datetime
+from typing import List
 
 
 # Observer base class
@@ -58,7 +59,7 @@ class LogAnalyzer:
         self.filepath = filepath
         self.n_lines = n_lines
         self.acc_factor = acc_factor
-        self._observers = []
+        self._observers: List[LogObserver] = []
         
         # Regex pattern for parsing log lines: YYYY-MM-DD HH:MM:SS
         self.timestamp_pattern = re.compile(r"(\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2})")
